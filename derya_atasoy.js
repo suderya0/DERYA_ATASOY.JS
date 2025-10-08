@@ -40,20 +40,20 @@ const buildUI = (products) => {
     container.innerHTML = `
         <h2 style="margin-bottom: 10px; margin-left:10px; justify-content: left;">Sizin için Seçtiklerimiz</h2>
         <div id="product-list-wrapper" style="margin-left: 10px; margin-right: 10px;">
-            <ul id="product-list"></ul>
-        </div>
-            
-        <button aria-label="back" class="scroll-prev">
+                <button aria-label="back" class="scroll-prev">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
             </svg>
         </button>
-
-        <button aria-label="next" class="scroll-next">
+            <ul id="product-list"></ul>
+                    <button aria-label="next" class="scroll-next">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
             </svg>
         </button>
+        </div>
+            
+
     `;
 
     const bannerDiv = document.querySelector("main eb-product-carousel .banner");
@@ -68,7 +68,13 @@ const buildUI = (products) => {
     // CSS Styles
     const style = document.createElement("style");
     style.textContent = `
-        #product-list-wrapper { position: relative; }
+        #product-list-wrapper 
+        { 
+            position: relative; 
+
+        }
+
+
         #product-list {
         font-family: 'Quicksand', sans-serif;
         display: flex;
@@ -143,7 +149,7 @@ const buildUI = (products) => {
             padding: 2px 6px;
             border-radius: 10px;
             display: inline-block;
-            margin-right: 4px;      
+            margin-right: auto;      
              }
         
         .price {
@@ -242,39 +248,45 @@ const buildUI = (products) => {
 
         /* Responsive discount styles */
         @media (max-width: 1380px) { 
-            #product-list li { flex: 0 0 220px;  } 
+            #product-list li { flex: 0 0 200px; } 
             #product-list img { height: 220px; } 
+            .scroll-prev, .scroll-next { width: 38px; height: 38px; font-size: 14px;  }
         }
         @media (max-width: 1200px) { 
-            #product-list li { flex: 0 0 200px; } 
+            #product-list li { flex: 0 0 180px; } 
             #product-list img { height: 200px; } 
+            .scroll-prev, .scroll-next { width: 36px; height: 36px; font-size: 14px;  }
         }
         @media (max-width: 1024px) { 
-            #product-list li { flex: 0 0 180px; } 
+            #product-list li { flex: 0 0 160px; } 
             #product-list img { height: 180px; } 
+            .scroll-prev, .scroll-next { width: 34px; height: 34px; font-size: 14px;  }
         }
         @media (max-width: 900px) { 
-            #product-list li { flex: 0 0 160px; } 
+            #product-list li { flex: 0 0 140px; } 
             #product-list img { height: 160px; } 
+            .scroll-prev, .scroll-next { width: 32px; height: 32px; font-size: 14px;  }
         }
         @media (max-width: 768px) { 
-            #product-list li { flex: 0 0 150px; min-width: 130px} 
+            #product-list li { flex: 0 0 120px; min-width: 160px; } 
             #product-list img { height: 150px; } 
             .original-price { font-size: 10px; }
             .discount-badge { font-size: 10px; padding: 1px 4px; }
+            .scroll-prev, .scroll-next { width: 30px; height: 30px; font-size: 13px;  }
         }
         @media (max-width: 600px) { 
-            #product-list li { flex: 0 0 140px; min-width: 130px} 
+            #product-list li { flex: 0 0 100px; min-width: 120px; } 
             #product-list img { height: 140px; } 
         }
         @media (max-width: 480px) {
-            #product-list li { min-width: 130px; flex: 0 0 130px; }
+            #product-list li { flex: 0 0 80px; min-width: 130px; }
             #product-list img { height: 130px; }
             .price { font-size: 0.85em; }
             .brand { font-size: 0.8em; }
             .product-info { font-size: 0.75em; }
             .original-price { font-size: 9px; }
             .discount-badge { font-size: 9px; padding: 1px 3px; }
+            .scroll-prev, .scroll-next { width: 28px; height: 28px; font-size: 12px; }
         }
     `;
     document.head.appendChild(style);
